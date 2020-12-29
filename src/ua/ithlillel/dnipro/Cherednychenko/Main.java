@@ -17,7 +17,7 @@ public class Main {
         }
 
         for (MyMap.Pair<String, Integer> entry : myMap.pairSet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
+            System.out.println(entry.getKey() + " - " + entry.getValue());
 
         }
 
