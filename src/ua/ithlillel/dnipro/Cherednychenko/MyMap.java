@@ -3,17 +3,7 @@ package ua.ithlillel.dnipro.Cherednychenko;
 
 public class MyMap<K, V> {
 
-    /*private static class Node {
-        Object value;
-        Node next;
-
-        public Node(Object value) {
-            this.value = value;
-        }
-    }
-*/
-
-    private MySet <Pair<K, V>> pairSet = new MySet<>();
+    private MySet<Pair<K, V>> pairSet = new MySet<>();
 
 
     public static class Pair<K, V> {
@@ -56,70 +46,25 @@ public class MyMap<K, V> {
     }
 
 
-   /* private Node[] buckets;
-    private int size = 0;
-
-    public MyMap(int size) {
-        this.buckets = new Node[size];
-    }
-
-    public MyMap() {
-        this(16);
-    }*/
-
-
     public void put(K key, V value) {
         Pair<K, V> elem = new Pair(key, value);
-
-       /* int index = getIndex((Pair<K, V>) elem);
-        Node existElem = findElem(elem, index);
-        if (existElem != null) {
-            existElem.value = elem;
-        } else {
-            Node newNode = new Node(elem);
-            newNode.next = buckets[index];
-            buckets[index] = newNode;
-            size++;
-        }*/
         pairSet.add(elem);
     }
 
-   /* private int getIndex(Pair<K, V> elem) {
-        int hash = elem.hashCode();
-        hash = hash > 0 ? hash : -hash;
-        return hash % buckets.length;
-    }*/
 
     public boolean contains(K key) {
         Pair<K, V> elem = new Pair<>(key, null);
-
-        /*int index = getIndex((Pair<K, V>) elem);
-        Node existElem = findElem(elem, index);
-        return existElem != null;*/
         return pairSet.contains(elem);
     }
 
     public V get(K key) {
         Pair<K, V> elem = new Pair<>(key, null);
-       /* int index = getIndex((Pair<K, V>) elem);
-        Node existElem = findElem(elem, index);
-        if (existElem != null) return ((Pair<K, V>) existElem.value).value;
-        else return null;*/
-       return pairSet.find(elem).value;
-
+        return pairSet.find(elem).value;
     }
 
-    public MySet<Pair<K,V>> pairSet(){
+    public MySet<Pair<K, V>> pairSet() {
         return this.pairSet;
     }
-
-    /*private Node findElem(Pair<K, V> elem, int bucketIndex) {
-        for (Node cur = buckets[bucketIndex]; cur != null; cur = cur.next) {
-            if (cur.value.equals(elem))
-                return cur;
-        }
-        return null;
-    }*/
 
 
 }
