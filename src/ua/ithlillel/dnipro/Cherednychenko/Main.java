@@ -5,8 +5,8 @@ public class Main {
     public static void main(String[] args) {
 
         MyMap<String, Integer> myMap = new MyMap<>();
-        String string = "Я иду по парку, иду один и вижу как по воде пробегает луч солнца";
-        String[] arraySting = string.toLowerCase().split("[,;\\s]+");
+        String string = "Я иду по парку, иду один и вижу как по воде пробегает луч солнца.";
+        String[] arraySting = string.toLowerCase().split("[,;\\s;.]+");
 
         for (String word : arraySting) {
             if (myMap.contains(word)) {
